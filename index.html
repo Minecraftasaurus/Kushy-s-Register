@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kushy's Register</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700&display=swap' rel='stylesheet' type='text/css'>
+
+  <style>
+
+    body {
+      font-family: 'Lato', sans-serif;
+      font-weight: 400;
+      background: url('background.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #d2f8da;
+      padding: 20px;
+    }
+    
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2em;
+      gap: clamp(0.2em, 5vw, 6em);
+      flex-wrap: nowrap;
+      margin-bottom: clamp(1em, calc(var(--logo-size) * 1.5), 2em);
+    }
+
+    .corner-logo {
+      height: clamp(40px, 8vw, 250px);
+      width: auto;
+      flex-shrink: 1;
+      transform: translateY(-0.5em);
+      z-index: 1000;
+    }
+
+    .corner-logo.left {
+      left: 1.5vw;
+    }
+
+    .corner-logo.right {
+      right: 1.5vw;
+    }
+
+    h1 {
+      font-size: 2.5em; 
+      margin: 0;
+      padding: 0.3em 1em;
+      font-size: clamp(1.2em, 4vw, 2.5em);
+      background: linear-gradient(to right, #3a4f3f, #5e7a67);
+      border: 2px solid #212523;
+      border-radius: 18px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      color: #d2f2cc;
+      display: inline-flex;          
+      align-items: center;       
+      justify-content: center;   
+      width: fit-content;
+      max-width: 100%;
+      line-height: 1.0;        
+      word-break: break-word;  
+      flex: 1 1 auto;
+      flex-shrink: 1; 
+      white-space: nowrap;
+      max-width: 100%;
+      overflow-x: auto;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .category {
+      margin-bottom: 25px;
+      padding: 0 22px;
+      float: left;
+      display: block;
+      /* width: calc(50% - 44px); */
+      width: 100%;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .category h2 {
+      color: #ddfae3;
+      background: linear-gradient(to top, #63866e, #516d58);
+      padding-bottom: 3px;
+      padding-top: 3px;
+      border: 3px solid #212523;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+    .back-button {
+      text-align: center;
+      color: #FFF;
+      display: block;
+      font-size: 32px;
+      font-weight: bold;
+      margin: 10px;
+      padding: 10px;
+    }
+
+    .category-button {
+      float: left;
+      display: block;
+      box-sizing: border-box;
+      width: calc(50% - 20px);
+      margin: 10px;
+      padding: 10px;
+      border-radius: 5px;
+      background: linear-gradient(to bottom, #63866e, #516d58);
+      border: 2px solid #212523;
+      box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+      transition: all 0.2s ease;
+      font-size: 15px;
+      font-weight: bold;
+      color: #ebe6d4;
+    }
+
+    .category-button:hover {
+      background: linear-gradient(to bottom, #76957e, #4f6959);
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+    }
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    button.item-button { 
+      background: linear-gradient(to bottom, #63866e, #516d58);
+      border: 2px solid #212523;
+      border-radius: 14px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+      font-size: 15px;
+      font-weight: bold;
+      color: #ebe6d4;
+      box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+      transition: all 0.2s ease;
+      cursor: pointer;
+      display: -webkit-box;
+      display: box;
+      -webkit-box-orient: vertical;
+      box-orient: vertical;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: normal;
+      max-height: 3.6em;
+    }
+
+    button.item-button:hover { 
+      background: linear-gradient(to bottom, #76957e, #4f6959);
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+    }
+
+  .corner-logo {
+    height: clamp(40px, 11em, 250px);
+    width: auto;
+    flex-shrink: 0;
+    transform: translateY(-0.5em);
+    transform: translateY(-0.5em);
+    z-index: 1000;
+  }
+
+  h1 {
+    font-size: 2.5em; 
+    margin: 0;
+    padding: 0.3em 1em;
+    font-size: clamp(1.5em, 4vw, 2.5em);
+    background: linear-gradient(to right, #3a4f3f, #5e7a67);
+    border: 3px solid #212523;
+    border-radius: 18px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    color: #d2f2cc;
+    display: flex;            
+    align-items: center;       
+    justify-content: center;   
+  }
+
+  @media (max-width: 850px) {
+  .header-container {
+    margin-bottom: 1.0em;
+    gap: clamp(0.2em, 1vw, 6em);
+  }
+  .corner-logo {
+    height: 4.5em;
+    width: auto;
+  }
+  h1 {
+    font-size: 1.5em;
+  }
+  .category {
+    margin-left: 2px;
+    margin-right: 2px;
+    width: 100%;
+  }
+  body {
+    padding: 10px;
+    font-size: 14px;
+  }
+  .buttons {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 10px;
+  }
+  button.item-button { 
+    padding: 10px;
+    font-size: 14px; 
+    line-height: 1.2;
+    min-height: 50px;
+  }
+  input,
+  textarea {
+    font-size: 14px;
+    padding: 8px;
+  }
+  .products {
+    width: 100% !important;
+  }
+  .order-container {
+    width: 100% !important;
+  }
+}
+
+div.container {
+  position: relative;
+}
+
+div.container div.products {
+  display: block; 
+  width:70%;
+  float: left;
+  box-sizing: border-box;
+  padding: 0px 10px;
+}
+div.container div.order-container {
+  display: block; 
+  width: 30%; 
+  float: right;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: rgba(0,0,0, 0.25);
+  border-radius: 5px;
+}
+
+div.categories {
+  display: block;
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.hidden {
+  display: none !important;
+}
+ul#order-list {
+  list-style-type: none;
+}
+ul#order-list li {
+  font-size: 20px;
+}
+
+.order-actions {}
+
+#copy-order-btn,
+#clear-order-btn {
+  display: block;
+  float: left;
+  padding: 10px;
+  border: 2px solid rgba(0,0,0, 0.25);
+  background: linear-gradient(to bottom, #76957e, #4f6959);
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0px;
+  color: #fff;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.order-container label {
+  padding: 10px;
+  margin: 10 0px;
+  display: block;
+}
+
+.order-container input[type="text"] {
+  display: block;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid rgba(0,0,0, 0.25);
+  padding: 10px;
+  box-sizing: border-box;
+  background: rgba(0,0,0, 0.25);
+  color: #FFF;
+}
+
+  </style>
+</head>
+<body>
+
+
+<div class="header-container">
+  <img src="kushys_logo.png" class="corner-logo left" alt="Left Logo">
+  <h1>Kushy's Register</h1>
+  <img src="kushys_logo.png" class="corner-logo right" alt="Right Logo">
+</div>
+
+<div class="container">
+  <div class="products">
+      
+    <div class="categories">
+        <button class="category-button" data-categoryTarget="glassware">Glassware</button>
+        <button class="category-button" data-categoryTarget="dabs">Dabs</button>
+        <button class="category-button" data-categoryTarget="joints">Joints &amp; Edibles</button>
+        <button class="category-button" data-categoryTarget="extras">Kushy's Extras</button>
+        <div class="clearfix"></div>
+    </div>
+
+      <div class="category hidden" id="category-glassware">
+        <a href="#" class="back-button">Back</a>
+        <h2>Glassware</h2>
+        <div class="buttons">
+          <button class="item-button" onclick="addItem('Heart of the Ocean PIPE', 1000)">Heart of the Ocean PIPE ($1000)</button>
+          <button class="item-button" onclick="addItem('Zipline PIPE', 1000)">Zipline PIPE ($1000)</button>
+          <button class="item-button" onclick="addItem('Greenhorn PIPE', 1000)">Greenhorn PIPE ($1000)</button>
+          <button class="item-button" onclick="addItem('Hot Rod PIPE', 1000)">Hot Rod PIPE ($1000)</button>
+          <button class="item-button" onclick="addItem('King BONG', 2000)">King BONG ($2000)</button>
+          <button class="item-button" onclick="addItem('Cloud-9 BONG', 2000)">Cloud-9 BONG ($2000)</button>
+          <button class="item-button" onclick="addItem('Magma Mama BONG', 2000)">Magma Mama BONG ($2000)</button>
+          <button class="item-button" onclick="addItem('Wildfire BONG', 2000)">Wildfire BONG ($2000)</button>
+          <button class="item-button" onclick="addItem('Perfect Storm BONG', 2000)">Perfect Storm BONG ($2000)</button>
+          <button class="item-button" onclick="addItem('Cookies N Cream BONG', 2000)">Cookies N Cream BONG ($2000)</button>
+        </div>
+      </div>
+      <div class="category hidden" id="category-dabs">
+        <a href="#" class="back-button">Back</a>
+        <h2>Dabs</h2>
+        <div class="buttons">
+          <button class="item-button" onclick="addItem('Dab Pen', 1500)">Dab Pen ($1500)</button>
+          <button class="item-button" onclick="addItem('Kiwi Krush CART', 700)">Kiwi Krush CART ($700)</button>
+          <button class="item-button" onclick="addItem('NightShade Nectar CART', 700)">NightShade Nectar CART ($700)</button>
+          <button class="item-button" onclick="addItem('Tropic Thunder OG CART', 700)">Tropic Thunder OG CART ($700)</button>
+        </div>
+      </div>
+      <div class="category hidden" id="category-joints">
+        <a href="#" class="back-button">Back</a>
+        <h2>Joints & Edibles</h2>
+        <div class="buttons">
+          <button class="item-button" onclick="addItem('Sherbert Kush JOINT', 150)">Sherbert Kush JOINT ($150)</button>
+          <button class="item-button" onclick="addItem('Kushberry JOINT', 150)">Kushberry JOINT ($150)</button>
+          <button class="item-button" onclick="addItem('Midnight Haze JOINT', 150)">Midnight Haze JOINT ($150)</button>
+          <button class="item-button" onclick="addItem('Kushy Cookie EDIBLE', 250)">Kushy Cookie EDIBLE ($250)</button>
+          <button class="item-button" onclick="addItem('Candied Popcorn Balls EDIBLE', 250)">Candied Popcorn Balls EDIBLE ($250)</button>
+          <button class="item-button" onclick="addItem('Chocolate Cones EDIBLE', 250)">Chocolate Cones EDIBLE ($250)</button>
+          <button class="item-button" onclick="addItem('Baggy of Sherbert CROP', 125)">Baggy of Sherbert CROP ($125)</button>
+          <button class="item-button" onclick="addItem('Baggy of Kushberry CROP', 125)">Baggy of Kushberry CROP ($125)</button>
+          <button class="item-button" onclick="addItem('Baggy of Midnight CROP', 125)">Baggy of Midnight CROP ($125)</button>
+        </div>
+      </div>
+      <div class="category hidden" id="category-extras">
+        <a href="#" class="back-button">Back</a>
+        <h2>Kushy's Extras</h2>
+        <div class="buttons">
+          <button class="item-button" onclick="addItem('White Leaf Lighter', 300)">White Leaf Lighter ($300)</button>
+          <button class="item-button" onclick="addItem('Black Leaf Lighter', 300)">Black Leaf Lighter ($300)</button>
+          <button class="item-button" onclick="addItem('Gold Leaf Lighter', 300)">Gold Leaf Lighter ($300)</button>
+          <button class="item-button" onclick="addItem('Cherry Popper STICKER', 600)">Cherry Popper STICKER ($600)</button>
+          <button class="item-button" onclick="addItem('Classic Kushy STICKER', 600)">Classic Kushy STICKER ($600)</button>
+          <button class="item-button" onclick="addItem('Care Kush STICKER', 600)">Care Kush STICKER ($600)</button>
+          <button class="item-button" onclick="addItem('KUSHY ROYALTY VIP PLAN ', 20000)">KUSHY ROYALTY VIP PLAN ($20000)</button>
+          <button class="item-button" onclick="addItem('Kushy\'s Dozen | x5 JNTS x5 EDBLS x2 CART |', 3000)">Kushy's Dozen | x5 JNTS x5 EDBLS x2 CART | ($3000)</button>
+          <button class="item-button" onclick="addItem('Kushy\'s Double | x5 JNTS x5 EDBLS |', 2000)">Kushy's Double | x5 JNTS x5 EDBLS | ($2000)</button>
+          <button class="item-button" onclick="addItem('VIP | Free 5x Daily Joints |', 0)">VIP | Free 5x Daily Joints ($0)</button>
+        </div>
+      </div>
+  </div>
+
+  <div class="order-container">
+    <h2>Kushy's Order</h2>
+
+
+
+    <ul id="order-list"></ul>
+    
+    <label for="cid">Customer CID</label>
+    <input name="cid" id="cid" type="text" placeholder="ABC123123">
+
+    <label for="cid">Employee Name</label>
+    <input name="employee" id="employee" type="text" placeholder="Viktor">
+
+    <label for="notes">Notes</label>
+    <input name="notes" id="notes" type="text" placeholder="Has a cool hat.."></input>
+
+    <div class="totals">
+      <label>
+        <input type="checkbox" id="member-toggle">
+        Kushy's Member (5% off)
+      </label>
+
+      <br/> <br/> 
+      <div>Subtotal: $<span id="subtotal">0.00</span></div>
+      <div>Discount: $<span id="discount">0.00</span></div>
+      <div><strong>Total: $<span id="total">0.00</span></strong></div>
+    </div>
+
+    <br/>
+
+    <div class="order-actions">
+      <button id="copy-order-btn">Copy Kushy's Receipt</button>
+      <button id="clear-order-btn">Clear</button>
+    </div>
+  </div>
+
+  <div class="clearfix"></div>
+</div>
+
+
+
+<script>let order = [];
+let total = 0;
+let latestCopyText = "";
+
+const BUSINESS_NAME = "Kushy's";
+const MEMBER_DISCOUNT_PERCENTAGE = 0.05; 
+
+
+function addItem(name, price) {
+  const existing = order.find(item => item.name === name);
+  if (existing) {
+    existing.qty = (existing.qty || 1) + 1;
+  } else {
+    order.push({ name, price, qty: 1 });
+  }
+
+  recalcTotal();
+  updateOrder();
+}
+
+function removeItemByName(e, name) {
+  if (e && e.preventDefault) e.preventDefault();
+
+  const index = order.findIndex(item => item.name === name && (item.qty || 1) > 0);
+  if (index !== -1) {
+    const item = order[index];
+    if (item.qty > 1) {
+      item.qty--;
+    } else {
+      order.splice(index, 1);
+    }
+    recalcTotal();
+    updateOrder();
+  }
+}
+
+function clearOrder() {
+  order = [];
+  total = 0;
+  latestCopyText = "";
+  
+  const customerCID = document.getElementById("cid");
+  const employee = document.getElementById("employee");
+  const notes = document.getElementById("notes");
+  const memberToggle = document.getElementById("member-toggle");
+
+  customerCID.value = '';
+  employee.value = '';
+  notes.value = '';
+  memberToggle.checked = '';
+
+  updateOrder();
+}
+
+function recalcTotal() {
+  total = order.reduce((sum, item) => {
+    const qty = item.qty || 1;
+    return sum + item.price * qty;
+  }, 0);
+}
+
+function getTotals() {
+  const memberToggle = document.getElementById("member-toggle");
+  const isMember = memberToggle ? memberToggle.checked : false;
+
+  const subtotal = total;
+  const discount = isMember ? subtotal * MEMBER_DISCOUNT_PERCENTAGE : 0;
+  const grandTotal = subtotal - discount;
+
+  return {
+    isMember,
+    subtotal,
+    discount,
+    grandTotal
+  };
+}
+
+function updateOrder() {
+  const listEl = document.getElementById("order-list");
+  if (!listEl) return;
+
+  listEl.innerHTML = "";
+
+  if (order.length === 0) {
+    listEl.innerHTML = "<li class='empty'>No items in the order.</li>";
+  } else {
+    order.forEach(item => {
+      const li = document.createElement("li");
+      li.className = "order-item";
+
+      const nameSpan = document.createElement("span");
+      nameSpan.className = "item-name";
+      nameSpan.textContent = item.name;
+
+      const qtySpan = document.createElement("span");
+      qtySpan.className = "item-qty";
+      qtySpan.textContent = ` x${item.qty} `;
+
+      const priceSpan = document.createElement("span");
+      priceSpan.className = "item-price";
+      priceSpan.textContent = `| $${(item.price * item.qty).toFixed(2)} `;
+
+      const removeBtn = document.createElement("button");
+      removeBtn.className = "item-remove";
+      removeBtn.textContent = "-";
+      removeBtn.onclick = (e) => removeItemByName(e, item.name);
+
+      const breaker = document.createElement("br");
+
+      li.appendChild(nameSpan);
+      li.appendChild(qtySpan);
+      li.appendChild(priceSpan);
+      li.appendChild(removeBtn);
+
+      listEl.appendChild(li);
+    });
+  }
+
+  const { subtotal, discount, grandTotal } = getTotals();
+
+  const subtotalEl = document.getElementById("subtotal");
+  const discountEl = document.getElementById("discount");
+  const totalEl = document.getElementById("total");
+
+  if (subtotalEl) subtotalEl.textContent = subtotal.toFixed(2);
+  if (discountEl) discountEl.textContent = discount.toFixed(2);
+  if (totalEl) totalEl.textContent = grandTotal.toFixed(2);
+
+  latestCopyText = formatOrderForCopy();
+}
+
+function formatOrderForCopy() {
+  if (order.length === 0) return `${BUSINESS_NAME} order is empty.`;
+
+  const { isMember, subtotal, discount, grandTotal } = getTotals();
+
+  const lines = [];
+  
+  const customerCID = document.getElementById("cid");
+  const employee = document.getElementById("employee");
+  const notes = document.getElementById("notes");
+
+  lines.push("Customer CID: " + customerCID.value);
+  lines.push("Employee Name: " + employee.value);
+  lines.push("Notes: " + notes.value);
+
+  lines.push("");
+  
+  lines.push("Items:");
+  order.forEach(item => {
+    lines.push(`${item.name} x${item.qty} - $${(item.price * item.qty).toFixed(2)}`);
+  });
+
+  lines.push("");
+  if (isMember) {
+    lines.push(`Subtotal: $${subtotal.toFixed(2)}`);
+    lines.push(`VIP Discount (${(MEMBER_DISCOUNT_PERCENTAGE * 100).toFixed(0)}%): -$${discount.toFixed(2)}`);
+  }
+  lines.push(`Total: $${grandTotal.toFixed(2)}`);
+
+  return lines.join("\n");
+}
+
+async function copyOrderToClipboard() {
+  if (order.length === 0) {
+    return;
+  }
+
+  const text = formatOrderForCopy();
+  latestCopyText = text;
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    try {
+      await navigator.clipboard.writeText(text);
+    } catch (err) {
+      console.error("Clipboard error:", err);
+      fallbackCopyText(text);
+    }
+  } else {
+    fallbackCopyText(text);
+  }
+}
+
+function fallbackCopyText(text) {
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+  textarea.style.position = "fixed";
+  textarea.style.opacity = "0";
+  document.body.appendChild(textarea);
+  textarea.select();
+  try {
+    document.execCommand("copy");
+  } catch (err) {
+    console.error("Fallback copy failed:", err);
+  }
+  document.body.removeChild(textarea);
+}
+
+function toggleCategory(category) {
+  const categoryTarget = document.getElementById('category-' + category);
+  const categoryContainer = document.querySelector('.categories');
+
+  categoryContainer.classList.toggle('hidden');
+  categoryTarget.classList.toggle('hidden');
+}
+
+// ---------- Event bindings ----------
+
+document.addEventListener("DOMContentLoaded", () => {
+  const memberToggle = document.getElementById("member-toggle");
+  const copyBtn = document.getElementById("copy-order-btn");
+  const clearBtn = document.getElementById("clear-order-btn");
+  const categoryButtons = document.getElementsByClassName('category-button');
+  const backButtons = document.getElementsByClassName('back-button');
+  const itemButtons = document.getElementsByClassName('item-button');
+
+  if (itemButtons) {
+    Array.prototype.forEach.call(itemButtons, (btn) => {
+      btn.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+        var itemName = btn.innerHTML;
+        itemName = itemName.split(" ($")[0];
+        console.log(itemName);
+        removeItemByName(e, itemName);
+      });
+    });
+  }
+
+  if (backButtons) {
+    Array.prototype.forEach.call(backButtons, (btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        const categoryParent = btn.parentNode;
+        const categoryContainer = document.querySelector('.categories');
+
+        categoryContainer.classList.toggle('hidden');
+        categoryParent.classList.toggle('hidden');
+      })
+    });
+  }
+
+  if (categoryButtons) {
+    Array.prototype.forEach.call(categoryButtons, (btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        toggleCategory(btn.dataset.categorytarget)
+      })
+    })
+  }
+
+  if (memberToggle) {
+    memberToggle.addEventListener("change", updateOrder);
+  }
+  if (copyBtn) {
+    copyBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      copyOrderToClipboard();
+    });
+  }
+  if (clearBtn) {
+    clearBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      clearOrder();
+    });
+  }
+
+  updateOrder();
+});
+
+</script>
+
+</body>
+</html>
